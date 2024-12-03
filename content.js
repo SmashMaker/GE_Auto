@@ -14,24 +14,35 @@
 
     // Function to get HTML elements
     function getHtmlElements() {
-        // Select all `div` elements with the specific class
-        return document.querySelectorAll('.px-4.pb-8.lg\\:px-8.lg\\:pb-6.card.mb-4.lg\\:mb-6');
-    }
+		// Select all elements with the specific classes
+		return document.querySelectorAll(
+			'.px-4.pb-8.lg\\:px-8.lg\\:pb-6.card.mb-4.lg\\:mb-6, .button-outline-default-large.hidden.min-w-48.mr-6.lg\\:flex.lg\\:items-center'
+    );
+}
 
-    // Function to click all buttons within the elements
+
     function clickAllButtons(elements) {
-        // For each selected element, find the button and click it
-        elements.forEach((element, index) => {
-            const button = element.querySelector('button'); // Select button inside the element
+		// For each selected element, find and click the button
+		elements.forEach((element, index) => {
+			// Check if the element itself is a button
+			if (element.tagName.toLowerCase() === 'button') {
+				console.log(`Element ${index + 1} is a button, simulating click.`);
+				element.click(); // Simulate a button click if the element itself is a button
+				return; // Exit early to avoid further checks
+			}
 
-            if (button) {
-                console.log(`Button found for element ${index + 1}, simulating click.`);
-                button.click(); // Simulate a button click
-            } else {
-                console.log(`No button found for element ${index + 1}.`);
-            }
-        });
-    }
+			// Look for a button inside the element
+			const button = element.querySelector('button'); // Select button inside the element
+
+			if (button) {
+				console.log(`Button found inside element ${index + 1}, simulating click.`);
+				button.click(); // Simulate a button click
+			} else {
+				console.log(`No button found for element ${index + 1}.`);
+				console.log(element);
+        }
+    });
+}
 
     // Function to select radio buttons with the class bg-success-05
     function selectSuccessRadio() {
