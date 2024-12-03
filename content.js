@@ -15,7 +15,7 @@
     // Function to get HTML elements
     function getHtmlElements() {
         // Select all `div` elements with the specific class
-        return document.querySelectorAll('.px-4.pb-8.lg\:px-8.lg\:pb-6.card.mb-4.lg\:mb-6');
+        return document.querySelectorAll('.px-4.pb-8.lg\\:px-8.lg\\:pb-6.card.mb-4.lg\\:mb-6');
     }
 
     // Function to click all buttons within the elements
